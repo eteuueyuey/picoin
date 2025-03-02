@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Network</title>
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+    
+    <style>
+        #content { padding: 20px; }
+        button { margin: 10px; padding: 10px; cursor: pointer; }
+    </style>
+
+    <script>
+        function loadPage(page) {
+            fetch(page) // Fetch the external HTML file
+                .then(response => response.text())
+                .then(html => document.getElementById("content").innerHTML = html)
+                .catch(error => console.error("Error loading page:", error));
+        }
+
+        // Load the home page by default
+        window.onload = () => loadPage('home.html');
+    </script>
+</head>
+<body>
+
+    <nav>
+        <button onclick="loadPage('home.html')">Home</button>
+        <button onclick="loadPage('wallet.html')">Wallet</button>
+        <button onclick="loadPage('login.html')">Login</button>
+    </nav>
+
+    <div id="content">
+        <!-- Page content will be loaded here dynamically -->
+    </div>
+
+</body>
+</html>
